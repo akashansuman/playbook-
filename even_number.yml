@@ -1,0 +1,10 @@
+---
+- name: even number between 1-13
+  hosts: all
+  become: true 
+  tasks:
+    - name: even number showing 
+      debug:
+        var: item
+      loop: "{{range(1, 13)}}"
+      when: "item %2 == 0"
